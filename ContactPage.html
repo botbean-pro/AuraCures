@@ -24,7 +24,7 @@
             max-width: 1750px;
             margin: 20px auto;
             padding: 45px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -119,9 +119,32 @@
         .cta-button:hover {
             background-color: #fd00fd75 ; /* Darker blue on hover */
         }
+        .background-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('Stars-BG.png') repeat-x;
+            background-size: contain;
+            background-repeat: repeat-x;
+            animation: scrollBackground 40s linear infinite;
+            z-index: -1;
+            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            background-blend-mode: overlay; /* Blend the image with the transparent color */
+            
+        }
+        @keyframes scrollBackground {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
-
+<div class="background-scroll"></div>
 <body>
     <nav class="nav-bar">
         <ul class="nav-tabs">
