@@ -1,77 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Website Home Page</title>
+    <title>Aura Cures</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
+        @font-face {
+            font-family: 'VAG Rounded';
+            src: url('VagRounded.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
-            font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            text-align: center;
+            font-family: 'VAG Rounded', sans-serif;
         }
-
         .container {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             max-width: 1750px;
             margin: 20px auto;
             padding: 45px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        .image-container {
+        .background-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('Stars-BG.png') repeat-x;
+            background-size: contain;
+            background-repeat: repeat-x;
+            animation: scrollBackground 40s linear infinite;
+            z-index: -1;
+            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            background-blend-mode: overlay; /* Blend the image with the transparent color */
+            
+        }
+        @keyframes scrollBackground {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+        .box-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-around;
             align-items: center;
-            margin: 10px 20px;
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            padding-top: 50px;
         }
-
-        .BathPic {
-            width: auto;
-            height: auto;
-            max-width: 700px;
-            border-radius: 20px;
-            box-shadow: 10px 10px 8px rgba(255, 0, 0, 0.274);
-        }
-
-        .SprayPic {
-            width: auto;
-            height: auto;
-            max-width: 700px;
-            border-radius: 20px;
-            box-shadow: 10px 10px 8px rgba(255, 0, 0, 0.274);
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1 {
             margin: 0;
+            font-size: 5rem;
+            font-weight: 700;
+            font-family: 'VAG Rounded', sans-serif; 
+            color: #000a96;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        .box {
+            background: rgba(255, 255, 255, 1);
+            flex: 1;
+            height: 430px;
+            width: 550px;
+            border-radius: 12px;
+            transition: flex 0.5s ease, background-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
         }
-
-        .product-description {
-            text-align: center;
-            margin-top: 10px;
-            color: #555;
-        }
-
-        /* Navigation Bar Styles */
-        .nav-bar {
+        /* Hover Animation */
+        .box:hover {
+            flex: 2;
+            background: rgb(181, 181, 181);
+        } 
+        .box img {
+            width: 400px;
+            height: auto;
+            object-fit: fill;
+            border-radius: 12px;
+            max-width: 100%;
+            max-height: 100%;
+    }
+    .nav-bar {
             background-color: #2c3e50;
             /* Darker background */
             color: white;
@@ -105,6 +132,8 @@
             padding: 8px 16px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             /* Smooth transition */
         }
 
@@ -118,13 +147,8 @@
             /* Active tab color */
         }
 
-        .container {
-            margin-top: 60px; /* Add padding below the fixed navbar */
-            padding-top: 70px; /* Increased padding to account for navbar height */
-        }
     </style>
 </head>
-
 <body>
     <nav class="nav-bar">
         <ul class="nav-tabs">
@@ -136,22 +160,26 @@
 
         </ul>
     </nav>
+    <div class="background-scroll"></div>
     <div class="container">
-        <div class="image-container">
-            <a href="SprayPage.html"><img src="Spray.png" alt="Aura Healing Spray" class="SprayPic"></a>
-            <div class="product-name"><h4>Aura Healing Spray</h4></div>
-            <p class="product-description">A refreshing blend of essential oils designed to clear negative energy and
-                promote a sense of calm. Use throughout the day to refresh your aura.</p>
-        </div>
-        <div class="image-container">
-            <a href="BathPage.html"><img src="Bath.png" alt="Aura Healing Bath" class="BathPic"></a>
-            <div class="product-name"><h4>Aura Healing Bath</h4></div>
-            <p class="product-description">Relaxes the body and mind, and aids in spiritual cleansing. Infused with salts
-                and botanicals.</p>
-                <br><br><br><br><br><br>
-                <h3> If on phone or tablet, please use in landscape mode</h3>
+        <h1> Aura        <br> Cures</h1>
+        <div class="box-container">
+            <div class="box">
+                <a href="BathPage.html">
+                    <img src="Bath.png" alt="Image 1">
+                </a>
+            </div>
+            <div class="box">
+                <a href="SprayPage.html">
+                    <img src="Spray.png" alt="Image 2">
+                </a>
+            </div>
+            <div class="box">
+                <a href="#">
+                    <img src="#" alt="Image 3">
+                </a>
+            </div>
         </div>
     </div>
 </body>
-
 </html>

@@ -1,52 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Website Contact Page</title>
+    <title>Aura Cures</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
+        @font-face {
+            font-family: 'VAG Rounded';
+            src: url('VagRounded.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
         body {
-            font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            text-align: center;
+            font-family: 'VAG Rounded', sans-serif;
         }
-
         .container {
+            position: relative;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             max-width: 1750px;
             margin: 20px auto;
             padding: 45px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
-        h1,
-        h2,
-        h3 {
+        .background-scroll {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('Stars-BG.png') repeat-x;
+            background-size: contain;
+            background-repeat: repeat-x;
+            animation: scrollBackground 40s linear infinite;
+            z-index: -1;
+            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
+            background-blend-mode: overlay; /* Blend the image with the transparent color */
+            
+        }
+        @keyframes scrollBackground {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+        .box-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            padding-top: 50px;
+        }
+        h1 {
             margin: 0;
+            font-size: 5rem;
+            font-weight: 700;
+            font-family: 'VAG Rounded', sans-serif; 
+            color: #000a96;
         }
-
-        a {
-            text-decoration: none;
-            color: inherit;
+        .box {
+            background: rgba(255, 255, 255, 1);
+            flex: 1;
+            height: 150px;
+            width: 150px;
+            border-radius: 12px;
+            transition: flex 0.5s ease, background-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
         }
-
-        .product-description {
-            text-align: center;
-            margin-top: 10px;
-            color: #555;
+        /* Hover Animation */
+        .box:hover {
+            flex: 2;
+            background: rgb(181, 181, 181);
+        } /* Images inside the box */
+        .box img {
+            width: 150px;
+            height: 150px;
+            object-fit: fill;
+            border-radius: 12px;
+            max-width: 100%;
+            max-height: 100%; 
         }
-        /* Navigation Bar Styles */
-        .nav-bar {
+    .nav-bar {
             background-color: #2c3e50;
             /* Darker background */
             color: white;
@@ -55,12 +107,10 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             /* Subtle shadow */
-            position: fixed;
-            /* Make it stick to the top */
+            position: fixed; /* Make it stick to the top */
             top: 0;
             left: 0;
-            z-index: 100;
-            /* Ensure it's above other elements */
+            z-index: 100; /* Ensure it's above other elements */
         }
 
         .nav-tabs {
@@ -82,6 +132,8 @@
             padding: 8px 16px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
             /* Smooth transition */
         }
 
@@ -95,33 +147,8 @@
             /* Active tab color */
         }
 
-        .container {
-            margin-top: 60px;
-            /* Add padding below the fixed navbar */
-            padding-top: 70px;
-            /* Increased padding to account for navbar height */
-        }
-
-        /* Button Styling for Contact Links */
-        .cta-button {
-            background-color: #3498db; /* Blue background */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1em;
-            cursor: pointer;
-            margin: 5px;
-            display: inline-block; /* Allows for horizontal alignment */
-        }
-
-        .cta-button:hover {
-            background-color: #fd00fd75 ; /* Darker blue on hover */
-        }
     </style>
 </head>
-
 <body>
     <nav class="nav-bar">
         <ul class="nav-tabs">
@@ -130,16 +157,28 @@
             <li><a href="ContactPage.html" class="active">Contact</a></li>
             <li><a href="SprayPage.html">Aura Spray</a></li>
             <li><a href="BathPage.html">Aura Bath</a></li>
+
         </ul>
     </nav>
-
+    <div class="background-scroll"></div>
     <div class="container">
-        <a href="https://www.instagram.com/aasthaakalra" class="cta-button">Instagram</a> <br>
-        <br>
-        Whatsapp - +91 9810446881<br>
-        <br>
-        <a href="https://www.youtube.com/@aasthakalra8030" class="cta-button">Youtube</a><br>
+        <div class="box-container">
+            <div class="box">
+                <a href="https://www.instagram.com/aasthaakalra">
+                    <img src="InstaLogo.png" alt="Insta">
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.youtube.com/@aasthakalra8030">
+                    <img src="YTLogo.png" alt="YT">
+                </a>
+            </div>
+            <div class="box">
+                <a href="WhatsappPage.html">
+                    <img src="WhatsappLogo.png" alt="Image 3">
+                </a>
+            </div>
+        </div>
     </div>
 </body>
-
 </html>
