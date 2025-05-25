@@ -150,6 +150,55 @@
                 transform: translateX(-50%);
             }
         }
+        .dropbtn {
+            background-color: transparent;
+            color: white;
+            padding: 8px 16px;
+            font-size: 1.3rem; /* Same font size as other nav items */
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif; /* Or 'VAG Rounded', sans-serif; depending on the page's font */
+        }
+
+        /* The container <li> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555; /* Darker background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            left: 50%; /* Center the dropdown content relative to its parent */
+            transform: translateX(-50%); /* Adjust for centering */
+            padding: 5px 0;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            font-size: 1rem; /* Smaller font for dropdown items */
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #34495e;
+        }
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         /* Ask how to add a dropdown for the products */
     </style>
 </head>
@@ -157,12 +206,17 @@
 <body>
     <nav class="nav-bar">
         <ul class="nav-tabs">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" >Home</a></li>
             <li><a href="AboutPage.html">About</a></li>
             <li><a href="ContactPage.html">Contact</a></li>
-            <li><a href="SprayPage.html">Aura Spray</a></li>
-            <li><a href="BathPage.html">Aura Bath</a></li>
-
+            <li class="dropdown">
+                <a href="#" class="dropbtn" class="active">Products</a>
+                <div class="dropdown-content">
+                    <a href="SprayPage.html">Aura Spray</a>
+                    <a href="BathPage.html">Aura Bath</a>
+                    <a href="AuraOils.html" class="active">Aura Oils</a>
+                </div>
+            </li>
         </ul>
     </nav>
     <div class="container">
