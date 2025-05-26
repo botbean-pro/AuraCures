@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura Cures</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Cures</title>
+<style>
         @font-face {
             font-family: 'VAG Rounded';
             src: url('VagRounded.ttf') format('truetype');
@@ -48,12 +48,13 @@
         }
         @keyframes scrollBackground {
             from {
-                transform: translateX(0);
+            transform: translateX(0);
             }
-            to {
-                transform: translateX(-50%);
+            to { /* Corrected from the previous error */
+            transform: translateX(-50%);
             }
-        }
+            }
+
         .box-container {
             display: flex;
             flex-direction: row;
@@ -68,8 +69,22 @@
             margin: 0;
             font-size: 5rem;
             font-weight: 700;
-            font-family: 'VAG Rounded', sans-serif; 
+            font-family: 'VAG Rounded', sans-serif;
             color: #000000;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 10px;
+            font-family: 'VAG Rounded', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        p{
+            color: #ffffff;
+            font-size: 1.2rem
         }
         .box {
             background: rgba(255, 255, 255, 0.5);
@@ -87,8 +102,8 @@
         /* Hover Animation */
         .box:hover {
             flex: 2;
-            background: rgba(255, 255, 255, 0.3);
-        } 
+            background: rgb(255, 255, 255);
+        }
         .box img {
             width: 400px;
             height: auto;
@@ -122,7 +137,6 @@
         .nav-tabs li {
             display: inline-block;
             margin: 0 10px;
-            position: relative; /* Needed for dropdown positioning */
         }
 
         .nav-tabs li a {
@@ -133,7 +147,7 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             /* Smooth transition */
         }
 
@@ -146,16 +160,15 @@
             background-color: #e74c3c;
             /* Active tab color */
         }
-
-        /* Dropdown Styles */
+/* Dropdown Styles */
         .dropbtn {
             background-color: transparent;
-            color: white;
+            color: rgb(0, 0, 0); /* Changed to black for consistency */
             padding: 8px 16px;
             font-size: 1.3rem; /* Same font size as other nav items */
             border: none;
             cursor: pointer;
-            font-family: 'Playfair Display', serif; /* Or 'VAG Rounded', sans-serif; depending on the page's font */
+            font-family: sans-serif; /* Override VAG Rounded for dropbtn */
         }
 
         /* The container <li> - needed to position the dropdown content */
@@ -165,7 +178,7 @@
         }
 
         /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
+            .dropdown-content {
             display: none;
             position: absolute;
             background-color: #555; /* Darker background for dropdown */
@@ -186,10 +199,11 @@
             display: block;
             text-align: left;
             font-size: 1rem; /* Smaller font for dropdown items */
+            font-family: sans-serif; /* Override VAG Rounded for dropdown content */
         }
 
         /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
+            .dropdown-content a:hover {
             background-color: #34495e;
         }
 
@@ -197,44 +211,44 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-    </style>
+</style>
 </head>
 <body>
-    <nav class="nav-bar">
-        <ul class="nav-tabs">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="AboutPage.html">About</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Products ▼</a>
-                <div class="dropdown-content">
-                    <a href="SprayPage.html">Aura Spray</a>
-                    <a href="BathPage.html">Aura Bath</a>
-                    <a href="AuraOils.html">Aura Oils</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="background-scroll"></div>
-    <div class="container">
-        <h1> Aura Cures</h1>
-        <div class="box-container">
-            <div class="box">
-                <a href="BathPage.html">
-                    <img src="Bath.png" alt="Image 1">
-                </a>
+<nav class="nav-bar">
+    <ul class="nav-tabs">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="AboutPage.html">About</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Products</a>
+            <div class="dropdown-content">
+                <a href="SprayPage.html">Aura Spray</a>
+                <a href="BathPage.html">Aura Bath</a>
+                <a href="AuraOils.html">Aura Oils</a>
             </div>
-            <div class="box">
-                <a href="SprayPage.html">
-                    <img src="Spray.png" alt="Image 2">
-                </a>
-            </div>
-            <div class="box">
-                <a href="AuraOils.html">
-                    <img src="AuraOils.png" alt="Image 3">
-                </a>
-            </div>
+        </li>
+    </ul>
+</nav>
+<div class="background-scroll"></div>
+<div class="container">
+    <h1> Aura Cures</h1>
+    <div class="box-container">
+        <div class="box">
+            <a href="BathPage.html">
+                <img src="Bath.png" alt="Image 1">
+            </a>
+        </div>
+        <div class="box">
+            <a href="SprayPage.html">
+                <img src="Spray.png" alt="Image 2">
+            </a>
+        </div>
+        <div class="box">
+            <a href="AuraOils.html">
+                <img src="AuraOils.png" alt="Image 3">
+            </a>
         </div>
     </div>
+</div>
 </body>
 </html>
