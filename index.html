@@ -1,254 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura Cures</title>
-<style> 
-        @font-face {
-            font-family: 'VAG Rounded';
-            src: url('VagRounded.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            font-family: 'VAG Rounded', sans-serif;
-        }
-        .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1750px;
-            margin: 20px auto;
-            padding: 45px;
-            background-color: rgba(255, 255, 255, 0);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .background-scroll {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 100%;
-            background: url('Stars-BG.png') repeat-x;
-            background-size: contain;
-            background-repeat: repeat-x;
-            animation: scrollBackground 40s linear infinite;
-            z-index: -1;
-            background-color: rgba(255, 255, 255, 0.2); /* White with 50% transparency */
-            background-blend-mode: overlay;
-        }
-        @keyframes scrollBackground {
-            from {
-            transform: translateX(0);
-            }
-            to { /* Corrected from the previous error */
-            transform: translateX(-50%);
-            }
-            }
-
-        .box-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px;
-            padding: 20px;
-            padding-top: 50px;
-        }
-        h1 {
-            margin: 0;
-            font-size: 5rem;
-            font-weight: 700;
-            font-family: 'VAG Rounded', sans-serif;
-            color: #000000;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #555;
-            margin-top: 10px;
-            font-family: 'VAG Rounded', sans-serif;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        p{
-            color: #ffffff;
-            font-size: 1.2rem
-        }
-        .box {
-            background: rgba(255, 255, 255, 0.5);
-            flex: 1;
-            height: 430px;
-            width: 550px;
-            border-radius: 12px;
-            transition: flex 0.5s ease, background-color 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 10px;
-        }
-        /* Hover Animation */
-        .box:hover {
-            flex: 2;
-            background: rgb(255, 255, 255);
-        }
-        .box img {
-            width: 400px;
-            height: auto;
-            object-fit: fill;
-            border-radius: 12px;
-            max-width: 100%;
-            max-height: 100%;
-        }
-        .nav-bar {
-            background-color: #2c3e50;
-            /* Darker background */
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
-            position: fixed; /* Make it stick to the top */
-            top: 0;
-            left: 0;
-            z-index: 100; /* Ensure it's above other elements */
-        }
-
-        .nav-tabs {
-            list-style: none;
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-tabs li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        .nav-tabs li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            /* Smooth transition */
-        }
-
-        .nav-tabs li a:hover {
-            background-color: #34495e;
-            /* Slightly lighter on hover */
-        }
-
-        .nav-tabs li a.active {
-            background-color: #e74c3c;
-            /* Active tab color */
-        }
-/* Dropdown Styles */
-        .dropbtn {
-            background-color: transparent;
-            color: rgb(0, 0, 0); /* Changed to black for consistency */
-            padding: 8px 16px;
-            font-size: 1.3rem; /* Same font size as other nav items */
-            border: none;
-            cursor: pointer;
-            font-family: sans-serif; /* Override VAG Rounded for dropbtn */
-        }
-
-        /* The container <li> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-            .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #555; /* Darker background for dropdown */
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-            left: 50%; /* Center the dropdown content relative to its parent */
-            transform: translateX(-50%); /* Adjust for centering */
-            padding: 5px 0;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 1rem; /* Smaller font for dropdown items */
-            font-family: sans-serif; /* Override VAG Rounded for dropdown content */
-        }
-
-        /* Change color of dropdown links on hover */
-            .dropdown-content a:hover {
-            background-color: #34495e;
-            cursor: wait;
-        }
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sustainable Development Goals</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @font-face {
+      font-family: 'VAG Rounded';
+      src: url('VagRounded.ttf') format('truetype');
+    }
+    body {
+      font-family: 'VAG Rounded', sans-serif;
+    }
+    @keyframes scrollBackground {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+  </style>
 </head>
-<body>
-<nav class="nav-bar">
-    <ul class="nav-tabs">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="AboutPage.html">About</a></li>
-        <li><a href="ContactPage.html">Contact</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Products</a>
-            <div class="dropdown-content">
-                <a href="SprayPage.html">Aura Spray</a>
-                <a href="BathPage.html">Aura Bath</a>
-                <a href="AuraOils.html">Aura Oils</a>
-            </div>
-        </li>
+<body class="bg-gray-100 text-gray-800 text-center relative overflow-x-hidden">
+
+  <!-- Background Scroll -->
+  <div class="fixed top-0 left-0 w-[200%] h-full z-[-1] bg-blend-overlay bg-white/50" style="background: url('ScrollBackground.png') repeat-x; background-size: contain; animation: scrollBackground 40s linear infinite;"></div>
+
+  <!-- Navbar -->
+  <nav class="bg-gray-800 text-white w-full fixed top-0 left-0 z-50 shadow">
+    <ul class="flex justify-center space-x-4 p-3 text-sm md:text-base">
+      <li><a href="index.html" class="bg-red-500 px-4 py-2 rounded hover:bg-red-600">Home</a></li>
+      <li><a href="AboutPage.html" class="hover:bg-gray-700 px-4 py-2 rounded">About</a></li>
+      <li><a href="ContactPage.html" class="hover:bg-gray-700 px-4 py-2 rounded">Contact</a></li>
+      <li><a href="SprayPage.html" class="hover:bg-gray-700 px-4 py-2 rounded">Aura Spray</a></li>
+      <li><a href="BathPage.html" class="hover:bg-gray-700 px-4 py-2 rounded">Aura Bath</a></li>
     </ul>
-</nav>
-<div class="background-scroll"></div>
-<div class="container">
-    <h1> Aura Cures</h1>
-    <div class="box-container">
-        <div class="box">
-            <a href="BathPage.html">
-                <img src="Bath.png" alt="Image 1">
-            </a>
-        </div>
-        <div class="box">
-            <a href="SprayPage.html">
-                <img src="Spray.png" alt="Image 2">
-            </a>
-        </div>
-        <div class="box">
-            <a href="AuraOils.html">
-                <img src="AuraOils.png" alt="Image 3">
-            </a>
-        </div>
-    </div>
+  </nav>
+
+  <!-- Main Title -->
+  <div class="pt-24 px-4">
+    <h1 class="text-4xl md:text-6xl font-bold text-blue-800">Aura<br>Cures</h1>
+  </div>
+
+  <!-- Box Container -->
+  <div class="flex flex-col md:flex-row justify-center items-center gap-6 p-6 mt-6">
+    <a href="BathPage.html" class="flex-1 max-w-xs">
+      <div class="bg-blue-400 hover:bg-blue-600 rounded-xl p-4 shadow-md transition-all duration-300">
+        <img src="Bath.png" alt="Aura Bath" class="w-full h-auto rounded-xl" />
+      </div>
+    </a>
+    <a href="SprayPage.html" class="flex-1 max-w-xs">
+      <div class="bg-blue-400 hover:bg-blue-600 rounded-xl p-4 shadow-md transition-all duration-300">
+        <img src="Spray.png" alt="Aura Spray" class="w-full h-auto rounded-xl" />
+      </div>
+    </a>
+  </div>
+
 </body>
 </html>
