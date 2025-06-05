@@ -1,131 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aura Website Healing Bath</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-
         body {
             font-family: 'Playfair Display', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        .container {
-            display: flex;
-            align-items: right; /* Vertical alignment */
-            justify-content: flex-start; /* Image on the left */
-            max-width: 1750px; /* Adjust as needed */
-            margin: 20px 200px; /* Center the container */
-            padding: 50px;
-            background-color: rgba(255, 255, 255, 0);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .text-content {
-            flex: 1; /* Take remaining space */
-            padding-left: 20px; /* Space between image and text */
-            text-align: center; /* Center align the text */
-        }
-
-        .BathPic {
-            width: auto;
-            height: auto;
-            max-width: 400px; /* Adjust image size */
-            border-radius: 20px;
-            box-shadow: 10px 10px 8px rgba(255, 255, 255, 0.5);
-            align-self: flex-start; /* Align image to the start */
-        }   
-
-        h1,
-        h2,
-        h3 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #ffffff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        p{
-            font-size: 1.5rem;
-            color: #ffffff;
-        }
-        /* Navigation Bar Styles */
-        .nav-bar {
-            background-color: #2c3e50;
-            /* Darker background */
-            color: white;
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
-            position: fixed; /* Make it stick to the top */
-            top: 0;
-            left: 0;
-            z-index: 100; /* Ensure it's above other elements */
-        }
-
-        .nav-tabs {
-            list-style: none;
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-tabs li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        .nav-tabs li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-size: 1.2rem;
-            /* Smooth transition */
-        }
-
-        .nav-tabs li a:hover {
-            background-color: #34495e;
-            /* Slightly lighter on hover */
-        }
-
-        .nav-tabs li a.active {
-            background-color: #e74c3c;
-            /* Active tab color */
-        }
-
-        .container {
-            margin-top: 60px; /* Add padding below the fixed navbar */
-            padding-top: 70px; /* Increased padding to account for navbar height */
+            overflow-x: hidden;
         }
         .background-scroll {
             position: fixed;
             top: 0;
             left: 0;
             width: 200%;
-            height: 100%;
+            height: 100vh;
             background: url('Stars-BG.png') repeat-x;
             background-size: contain;
             background-repeat: repeat-x;
             animation: scrollBackground 40s linear infinite;
             z-index: -1;
-            background-color: rgba(255, 255, 255, 0.5); /* White with 50% transparency */
-            background-blend-mode: overlay; /* Blend the image with the transparent color */
-            
+            background-color: rgba(255, 255, 255, 0.2);
+            background-blend-mode: overlay;
         }
         @keyframes scrollBackground {
             from {
@@ -135,95 +33,54 @@
                 transform: translateX(-50%);
             }
         }
-        .dropbtn {
-            background-color: transparent;
-            color: white;
-            padding: 8px 16px;
-            font-size: 1.3rem; /* Same font size as other nav items */
-            border: none;
-            cursor: pointer;
-            font-family: 'Playfair Display', serif; /* Or 'VAG Rounded', sans-serif; depending on the page's font */
-        }
-
-        /* The container <li> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #555; /* Darker background for dropdown */
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-            left: 50%; /* Center the dropdown content relative to its parent */
-            transform: translateX(-50%); /* Adjust for centering */
-            padding: 5px 0;
-        }
-
-        /* Links inside the dropdown */
-        .dropdown-content a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 1rem; /* Smaller font for dropdown items */
-        }
-
-        /* Change color of dropdown links on hover */
-        .dropdown-content a:hover {
-            background-color: #34495e;
-        }
-
-        /* Show the dropdown menu on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
-
-<body>
-    <div class="background-scroll"></div>
-   <nav class="nav-bar">
-        <ul class="nav-tabs">
-            <li><a href="index.html" >Home</a></li>
-            <li><a href="AboutPage.html">About</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn active" >Products </a>
-                <div class="dropdown-content">
-                    <a href="SprayPage.html">Aura Spray</a>
-                    <a href="BathPage.html" class="active">Aura Bath</a>
-                    <a href="AuraOils.html">Aura Oils</a>
+<body class="bg-[#f4f4f9] text-[#333] text-center">
+    <nav class="fixed top-0 left-0 w-full bg-[#2c3e50] text-white py-2 shadow-md z-50">
+        <ul class="list-none inline-block m-0 p-0">
+            <li class="inline-block mx-2">
+                <a href="index.html" class="block font-bold py-2 px-4 rounded-md transition-colors duration-300 hover:bg-[#34495e] text-lg">Home</a>
+            </li>
+            <li class="inline-block mx-2">
+                <a href="AboutPage.html" class="block font-bold py-2 px-4 rounded-md transition-colors duration-300 hover:bg-[#34495e] text-lg">About</a>
+            </li>
+            <li class="inline-block mx-2">
+                <a href="ContactPage.html" class="block font-bold py-2 px-4 rounded-md transition-colors duration-300 hover:bg-[#34495e] text-lg">Contact</a>
+            </li>
+            <li class="inline-block mx-2 relative group">
+                <a href="#" class="dropbtn block font-bold py-2 px-4 rounded-md transition-colors duration-300 hover:bg-[#34495e] text-lg bg-[#e74c3c]">Products</a>
+                <div class="dropdown-content absolute hidden group-hover:block bg-[#555] min-w-[160px] shadow-lg rounded-md z-10 py-1">
+                    <a href="SprayPage.html" class="block text-white py-3 px-4 text-left text-base hover:bg-[#34495e]">Aura Spray</a>
+                    <a href="BathPage.html" class="block text-white py-3 px-4 text-left text-base hover:bg-[#34495e] bg-[#e74c3c]">Aura Bath</a>
+                    <a href="AuraOils.html" class="block text-white py-3 px-4 text-left text-base hover:bg-[#34495e]">Aura Oils</a>
                 </div>
             </li>
         </ul>
     </nav>
-    <div class="container">
-        <img src="Bath.png" alt="Aura bath" class="BathPic">
-        <div class="text-content">
-            <h1>Aura Detox Bath - Deep Cleansing & Energy Reset</h1>
-            <p>Purpose:<br>
+    <div class="background-scroll"></div>
+    <div class="container relative z-10 flex flex-col md:flex-row items-center justify-center max-w-[1750px] mx-auto pt-20 px-4 py-8 bg-transparent rounded-lg shadow-md">
+        <img src="Bath.png" alt="Aura bath" class="BathPic w-full md:w-auto h-auto max-w-[400px] rounded-2xl shadow-lg self-center md:self-start mb-6 md:mb-0 md:mr-8">
+        <div class="text-content flex-1 pl-0 md:pl-8 text-center md:text-left">
+            <h1 class="m-0 text-4xl lg:text-5xl font-bold text-white">Aura Detox Bath - Deep Cleansing & Energy Reset</h1>
+            <p class="text-xl text-white leading-relaxed">Purpose:<br>
                 •Provides a deep, immersive energy cleanse, flushing out negativity absorbed over time.<br>
                 •Helps release emotional baggage, stress, and toxins from the body and aura.<br>
                 •Works on a physical, emotional, and spiritual level, promoting long-term healing.<br>
             </p>
-            <p>
+            <p class="text-xl text-white leading-relaxed">
             Best For: <br>
             ✔ Removing heavy emotional energy<br>
             ✔ Releasing toxic attachments and energetic blockages<br>
             ✔ Full-body relaxation and chakra balancing<br>
             ✔ Grounding and resetting energy</p>
-            <p>Both products are infused with energy healing by a certified aura healer, ensuring powerful cleansing and rejuvenation. You can use them separately or together for a holistic energy reset—the spray for daily upkeep and the bath for deeper healing.</p>
-            <p>Whatsapp number - 9810446881</p>
-            <p>Disclaimer: These are holistic wellness products with no known side effects. They are not intended to diagnose, treat, cure, or prevent any medical condition. The creator is not responsible for individual experiences or results. Please use them as a complementary practice for overall well-being.</p>
+            <p class="text-xl text-white leading-relaxed">Both products are infused with energy healing by a certified aura healer, ensuring powerful cleansing and rejuvenation. You can use them separately or together for a holistic energy reset—the spray for daily upkeep and the bath for deeper healing.</p>
+            <p class="text-xl text-white leading-relaxed">Whatsapp number - 9810446881</p>
+            <p class="text-xl text-white leading-relaxed">Disclaimer: These are holistic wellness products with no known side effects. They are not intended to diagnose, treat, cure, or prevent any medical condition. The creator is not responsible for individual experiences or results. Please use them as a complementary practice for overall well-being.</p>
         </div>
     </div>
 </body>
-
 </html>
